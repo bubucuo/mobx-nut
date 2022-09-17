@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Reaction} from "../which";
 
 export interface IReactionTracking {
@@ -29,6 +29,13 @@ export function useObserver<T>(
       ),
     };
   }
+
+  useEffect(() => {
+    return () => {
+      reactionTrackingRef.current?.reaction.dispose();
+      reactionTrackingRef.current = null;
+    };
+  }, []);
 
   const {reaction} = reactionTrackingRef.current;
 
