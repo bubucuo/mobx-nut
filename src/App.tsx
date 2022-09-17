@@ -6,6 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import CountPage from "./pages/CountPage";
+import TimerPage from "./pages/TimerPage";
 import TodoListPage from "./pages/TodoListPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path="count" element={<CountPage />} />
             <Route path="todoList" element={<TodoListPage />} />
+            <Route path="timer" element={<TimerPage />} />
           </Route>
         </Routes>
       </Router>
@@ -28,6 +30,8 @@ function Layout() {
     <div className="border">
       <Link to="/count">count</Link>
       <Link to="/todoList">todoList</Link>
+      <Link to="/timer">timer</Link>
+
       <Outlet />
     </div>
   );
