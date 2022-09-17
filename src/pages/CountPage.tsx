@@ -1,12 +1,15 @@
 import {Component} from "react";
 import count from "../store/Count";
-import {observer} from "../which";
+import {observer, Observer} from "../which";
 
 function CountPage() {
   return (
     <div>
       <h1>CountPage</h1>
-      <button onClick={count.add}>{count.num}</button>
+
+      <Observer>
+        {() => <button onClick={count.add}>{count.num}</button>}
+      </Observer>
     </div>
   );
 }
@@ -23,4 +26,4 @@ function CountPage() {
 //   }
 // }
 
-export default observer(CountPage);
+export default CountPage;

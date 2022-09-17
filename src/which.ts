@@ -7,8 +7,8 @@ import {
   Reaction,
 } from "mobx";
 
-// import {observer} from "mobx-react-lite";
-import {observer} from "./nut-mobx-react-lite";
+// import {observer, Observer} from "mobx-react-lite";
+import {observer, Observer} from "./nut-mobx-react-lite";
 
 // import {observer} from "mobx-react";
 
@@ -23,6 +23,7 @@ export {
 
   // mobx-react-lite
   observer,
+  Observer,
 
   // mobx-react
 };
