@@ -8,6 +8,8 @@ import {
 import CountPage from "./pages/CountPage";
 import TimerPage from "./pages/TimerPage";
 import TodoListPage from "./pages/TodoListPage";
+import ProviderPage from "./pages/ProviderPage";
+import InjectPage from "./pages/InjectPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="count" element={<CountPage />} />
             <Route path="todoList" element={<TodoListPage />} />
             <Route path="timer" element={<TimerPage />} />
+            <Route path="providerPage" element={<ProviderPage />} />
+            <Route path="injectPage" element={<InjectPage />} />
           </Route>
         </Routes>
       </Router>
@@ -31,6 +35,8 @@ function Layout() {
       <Link to="/count">count</Link>
       <Link to="/todoList">todoList</Link>
       <Link to="/timer">timer</Link>
+      <Link to="/providerPage">providerPage</Link>
+      <Link to="/injectPage">injectPage</Link>
 
       <Outlet />
     </div>
