@@ -17,7 +17,7 @@ import {observer, Observer, useLocalObservable} from "./nut-mobx-react";
 export type {AnnotationsMap};
 
 export {
-  // mobx
+  // todo mobx
   makeAutoObservable,
   makeObservable,
   observable,
