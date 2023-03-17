@@ -5,8 +5,8 @@ export type Annotation = {
   make_(
     adm: ObservableObjectAdministration,
     key: PropertyKey,
-    descriptor: PropertyDescriptor,
-    source: object
+    descriptor: PropertyDescriptor
+    // source: object
   ): void;
 };
 

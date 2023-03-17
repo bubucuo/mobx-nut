@@ -1,5 +1,5 @@
 import {propagateChanged, reportObserved} from "./observable-core";
-import {IDerivation, IDerivationState_} from "./Reaction";
+import {IDerivation} from "./Reaction";
 
 export const $mobx = Symbol("mobx administration");
 
@@ -15,7 +15,7 @@ export interface IObservable {
 
   isBeingObserved_: boolean;
 
-  lowestObserverState_: IDerivationState_;
+  // lowestObserverState_: IDerivationState_;
 
   observers_: Set<IDerivation>;
 }
@@ -32,7 +32,7 @@ export class Atom implements IAtom {
   observers_ = new Set<IDerivation>();
 
   lastAccessedBy_ = 0;
-  lowestObserverState_ = IDerivationState_.NOT_TRACKING_;
+  // lowestObserverState_ = IDerivationState_.NOT_TRACKING_;
 
   public reportObserved(): boolean {
     return reportObserved(this);
