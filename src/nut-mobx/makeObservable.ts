@@ -1,7 +1,7 @@
 import {AnnotationsMap} from "mobx";
 import {$mobx, ObservableValue} from "./observablevalue";
 import {addHiddenProp, isPlainObject, ownKeys} from "./utils";
-import {Annotation} from "./annotation";
+import {Annotation, createAutoAnnotation} from "./annotation";
 
 type NoInfer<T> = [T][T extends any ? 0 : never];
 export function makeObservable<
@@ -29,7 +29,10 @@ export class ObservableObjectAdministration {
     this.isPlainObject_ = isPlainObject(this.target_);
   }
 
-  make_(key: PropertyKey, annotation: Annotation) {
+  make_(key: PropertyKey, annotation: Annotation | boolean) {
+    if (annotation === true) {
+      annotation = createAutoAnnotation();
+    }
     let source = this.target_;
 
     while (source && source !== Object.prototype) {
@@ -82,7 +85,22 @@ export class ObservableObjectAdministration {
   }
 }
 
-export function makeAutoObservable() {}
+const keysSymbol = Symbol("mobx-keys");
+export function makeAutoObservable(target: any) {
+  const adm: ObservableObjectAdministration = asObservableObject(target)[$mobx];
+
+  if (!target[keysSymbol]) {
+    const proto = Object.getPrototypeOf(target);
+    const keys = new Set([...ownKeys(target), ...ownKeys(proto)]);
+    keys.delete("constructor");
+    keys.delete($mobx);
+    addHiddenProp(proto, keysSymbol, keys);
+  }
+
+  target[keysSymbol].forEach((key: string) => adm.make_(key, true));
+
+  return adm;
+}
 
 const descriptorCache = Object.create(null);
 

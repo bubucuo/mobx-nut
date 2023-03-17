@@ -1,8 +1,8 @@
 import {
-  makeObservable,
-  observable,
-  action,
-  // makeAutoObservable,
+  // makeObservable,
+  // observable,
+  // action,
+  makeAutoObservable,
 } from "../which";
 
 // 注解
@@ -10,11 +10,11 @@ class Count {
   num = 0;
 
   constructor() {
-    // makeAutoObservable(this);
-    makeObservable(this, {
-      num: observable,
-      add: action,
-    });
+    makeAutoObservable(this);
+    // makeObservable(this, {
+    //   num: observable,
+    //   add: action,
+    // });
   }
   add = () => {
     this.num++;
