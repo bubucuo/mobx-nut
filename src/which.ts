@@ -3,10 +3,20 @@ import {
   makeObservable,
   observable,
   action,
-  computed,
+  // computed,
   Reaction,
   AnnotationsMap,
 } from "mobx";
+
+// import {
+//   makeAutoObservable,
+//   makeObservable,
+//   observable,
+//   action,
+//   // computed,
+//   Reaction,
+//   AnnotationsMap,
+// } from "./nut-mobx";
 
 // import {observer, Observer, useLocalObservable} from "mobx-react-lite";
 // import {observer, Observer, useLocalObservable} from "./nut-mobx-react-lite";
@@ -19,6 +29,8 @@ import {
 //   Provider,
 //   inject,
 // } from "mobx-react";
+
+// ? 实现 mobx 的时候，切换成自己实现的 nut-mobx-react
 import {
   observer,
   Observer,
@@ -36,7 +48,7 @@ export {
   makeObservable,
   observable,
   action,
-  computed,
+  // computed,
   Reaction,
 
   // mobx-react-lite

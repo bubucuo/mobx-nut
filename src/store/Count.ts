@@ -1,4 +1,9 @@
-import {makeAutoObservable, makeObservable, observable, action} from "../which";
+import {
+  makeObservable,
+  observable,
+  action,
+  // makeAutoObservable,
+} from "../which";
 
 // 注解
 class Count {
