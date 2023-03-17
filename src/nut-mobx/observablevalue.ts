@@ -34,10 +34,12 @@ export class Atom implements IAtom {
   lastAccessedBy_ = 0;
   // lowestObserverState_ = IDerivationState_.NOT_TRACKING_;
 
+  // 观察
   public reportObserved(): boolean {
     return reportObserved(this);
   }
 
+  // 值改变
   public reportChanged() {
     propagateChanged(this);
   }
